@@ -8,6 +8,8 @@ tus is a new open protocol for resumable uploads built on HTTP. This is the [tus
 
 __Note from MrLanza : This is a stripped down version with only the Local File Storage, for my own needs (and because grpc do not compile on my dev system, and I have no time to fix a dependency I will not use...)__
 
+If you need the original with the full experience, get it here : https://github.com/tus/tus-node-server
+
 ## Flexible Data Stores
 
 - **Local File Storage**
