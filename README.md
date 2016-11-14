@@ -1,4 +1,4 @@
-# tus-node-server
+# tus-node-server, without external DataStores
 [![npm version](https://badge.fury.io/js/tus-node-server.svg)](https://badge.fury.io/js/tus-node-server)
 [![Build Status](https://travis-ci.org/tus/tus-node-server.svg?branch=master)](https://travis-ci.org/tus/tus-node-server)
 [![Coverage Status](https://coveralls.io/repos/tus/tus-node-server/badge.svg?branch=master&service=github)](https://coveralls.io/github/tus/tus-node-server?branch=master)
@@ -6,11 +6,7 @@
 
 tus is a new open protocol for resumable uploads built on HTTP. This is the [tus protocol 1.0.0](http://tus.io/protocols/resumable-upload.html) node.js server implementation.
 
-## Installation
-
-```bash
-$ npm install tus-node-server
-```
+__Note from MrLanza : This is a stripped down version with only the Local File Storage, for my own needs (and because grpc do not compile on my dev system, and I have no time to fix a dependency I will not use...)__
 
 ## Flexible Data Stores
 
@@ -18,26 +14,6 @@ $ npm install tus-node-server
     ```js
     server.datastore = new tus.FileStore({
         path: '/files'
-    });
-    ```
-
-- **Google Cloud Storage**
-    ```js
-
-    server.datastore = new tus.GCSDataStore({
-        path: '/files',
-        projectId: 'project-id',
-        keyFilename: 'path/to/your/keyfile.json',
-        bucket: 'bucket-name',
-    });
-    ```
-
-- **Amazon S3** ([_coming soon_](https://github.com/tus/tus-node-server/issues/12))
-    ```js
-
-    server.datastore = new tus.S3Store({
-        path: '/files',
-        bucket: 'bucket-name',
     });
     ```
 
@@ -160,11 +136,6 @@ server.datastore = new tus.FileStore({
 Start the demo server using Local File Storage
 ```bash
 $ npm run demo
-```
-
-Or start up the demo server using Google Cloud Storage
-```bash
-$ npm run gcs_demo
 ```
 
 Then navigate to the demo ([localhost:8000](http://localhost:8000)) which uses [`tus-js-client`](https://github.com/tus/tus-js-client)
